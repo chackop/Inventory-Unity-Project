@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
     public List<Item> characterItems = new List<Item>();
     public ItemDatabase itemDatabase;
-    // public UIInventory inventoryUI;
+    public UIInventory inventoryUI;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            // inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);
+            inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);
         }
     }
 
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
     {
         Item itemToAdd = itemDatabase.GetItem(id);
         characterItems.Add(itemToAdd);
-        // inventoryUI.AddNewItem(itemToAdd);
+        inventoryUI.AddNewItem(itemToAdd);
         Debug.Log("Added item: " + itemToAdd.title);
     }
 
@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour {
     {
         Item itemToAdd = itemDatabase.GetItem(itemName);
         characterItems.Add(itemToAdd);
-        // inventoryUI.AddNewItem(itemToAdd);
+        inventoryUI.AddNewItem(itemToAdd);
         Debug.Log("Added item: " + itemToAdd.title);
     }
 
@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour {
         if (itemToRemove != null)
         {
             characterItems.Remove(itemToRemove);
-            // inventoryUI.RemoveItem(itemToRemove);
+            inventoryUI.RemoveItem(itemToRemove);
             Debug.Log("Removed item: " + itemToRemove.title);
         }
     }
